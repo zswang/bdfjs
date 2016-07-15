@@ -1,6 +1,6 @@
 {
   "name": "bdfjs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple library for reading Adobe Glyph Bitmap Distribution font Data",
   "main": "bdf.js",
   "dependencies": {},
