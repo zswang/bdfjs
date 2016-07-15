@@ -1,0 +1,27 @@
+{
+  "homepage": "https://github.com/zswang/bdfjs",
+  "main": "bdfjs.js",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "devDependencies": {},
+  "ignore": [
+    "src",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/components",
+    "test",
+    "tests"
+  ],
+  "name": "bdfjs",
+  "description": "Simple library for reading Adobe Glyph Bitmap Distribution font Data",
+  "keywords": [
+    "adobe",
+    "bdf",
+    "font",
+    "bitmap"
+  ],
+  "version": "0.0.1"
+}

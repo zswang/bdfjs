@@ -1,18 +1,33 @@
 {
-  "name": "bdf",
-  "version": "1.0.1",
-  "description": "Simple library for reading Adobe Glyph Bitmap Distribution font files",
-  "main": "BDF.js",
+  "name": "bdfjs",
+  "version": "0.0.1",
+  "description": "Simple library for reading Adobe Glyph Bitmap Distribution font Data",
+  "main": "bdf.js",
   "dependencies": {},
   "devDependencies": {
-    "mocha": "^2.3.4"
+    "gulp": "^3.9.0",
+    "gulp-examplejs": "^0.0.5",
+    "gulp-jdists": "^0.0.5",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.3",
+    "jshint": "2.5.8",
+    "jstrs": "^0.0.36",
+    "mocha": "^2.0.1",
+    "istanbul": "^0.3.17",
+    "should": "^4.1.0"
   },
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha test.js --reporter spec"
+    "_update_version": "node version.js",
+    "_dist": "gulp",
+    "lint": "jshint src/*.js",
+    "test": "istanbul cover --hook-run-in-context node_modules/mocha/bin/_mocha -- -R spec",
+    "example": "gulp example",
+    "mocha": "mocha",
+    "dist": "npm run _update_version && npm run example && npm run _dist && npm run test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/victorporof/BDF.js.git"
+    "url": "https://github.com/zswang/bdfjs.git"
   },
   "keywords": [
     "adobe",
@@ -20,10 +35,26 @@
     "font",
     "bitmap"
   ],
-  "author": "Victor Porof <victor.porof@gmail.com>",
+  "author": [
+    {
+      "name": "Victor Porof",
+      "email": "<victor.porof@gmail.com>"
+    },
+    {
+      "name": "erkkah",
+      "email": "https://github.com/erkkah"
+    },
+    {
+      "name": "zswang",
+      "url": "http://weibo.com/zswang"
+    }
+  ],
   "license": "MPL 2.0",
   "bugs": {
-    "url": "https://github.com/victorporof/BDF.js/issues"
+    "url": "https://github.com/zswang/bdfjs/issues"
   },
-  "homepage": "https://github.com/victorporof/BDF.js"
+  "homepage": "https://github.com/zswang/bdfjs",
+  "files": [
+    "jstrs.js"
+  ]
 }
