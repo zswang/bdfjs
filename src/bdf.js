@@ -318,6 +318,7 @@
   /*</function>*/
   exports.draw = bdf_draw;
 
+  /*<function name="bdf_trim">*/
   /**
    * 裁剪空白的边缘
    *
@@ -332,7 +333,7 @@
 
     var bitmap = BDF.draw(font, 'HI');
     console.log(JSON.stringify(BDF.trim(bitmap)));
-    // >
+    // > {"0":[1,0,1,0,1,1],"1":[1,0,1,0,0,1],"2":[1,1,1,0,0,1],"3":[1,0,1,0,0,1],"4":[1,0,1,0,1,1],"width":7,"height":5}
     ```
    */
   function bdf_trim(bitmap) {
@@ -363,6 +364,7 @@
     return result;
   }
   exports.trim = bdf_trim;
+  /*</function>*/
 
   /*<remove>
     var BDF = exports;

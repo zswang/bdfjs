@@ -10,8 +10,8 @@
    *   Victor Porof (<victor.porof@gmail.com>)
    *   erkkah (https://github.com/erkkah)
    *   zswang (http://weibo.com/zswang)
-   * @version 0.0.2
-   * @date 2016-07-15
+   * @version 0.0.3
+   * @date 2016-07-16
    */
   var exports = exports || {};
   /*<function name="camelCase">*/
@@ -322,6 +322,7 @@
   }
   /*</function>*/
   exports.draw = bdf_draw;
+  /*<function name="bdf_trim">*/
   /**
    * 裁剪空白的边缘
    *
@@ -335,7 +336,7 @@
     var font = BDF.parse(buffer);
     var bitmap = BDF.draw(font, 'HI');
     console.log(JSON.stringify(BDF.trim(bitmap)));
-    // >
+    // > {"0":[1,0,1,0,1,1],"1":[1,0,1,0,0,1],"2":[1,1,1,0,0,1],"3":[1,0,1,0,0,1],"4":[1,0,1,0,1,1],"width":7,"height":5}
     ```
    */
   function bdf_trim(bitmap) {
@@ -365,6 +366,7 @@
     return result;
   }
   exports.trim = bdf_trim;
+  /*</function>*/
   if (typeof define === 'function') {
     if (define.amd) {
       define(function() {
