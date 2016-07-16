@@ -10,7 +10,7 @@
    *   Victor Porof (<victor.porof@gmail.com>)
    *   erkkah (https://github.com/erkkah)
    *   zswang (http://weibo.com/zswang)
-   * @version 0.0.4
+   * @version 0.0.5
    * @date 2016-07-16
    */
   var exports = exports || {};
@@ -300,19 +300,19 @@
         columnsToAdd += xpos;
       }
       // Extend bitmap to the right with zeros
-      for (var row = 0; row < height; row++) {
+      for (var row1 = 0; row1 < height; row1++) {
         for (var glyphColumn = 0; glyphColumn < columnsToAdd; glyphColumn++) {
           column = glyphColumn + result.width;
-          result[row][column] = 0;
+          result[row1][column] = 0;
         }
       }
       result.width += columnsToAdd;
       // Draw the glyph
       for (var y = 0; y < glyphData.boundingBox.height; y++) {
         for (var x = 0; x < glyphData.boundingBox.width; x++) {
-          var row = rowStart + y;
+          var row2 = rowStart + y;
           var column = xpos + glyphData.boundingBox.x + x;
-          result[row][column] |= glyphData.bitmap[y][x];
+          result[row2][column] |= glyphData.bitmap[y][x];
         }
       }
       // Advance position
@@ -360,8 +360,8 @@
     }
     result.width = maxX - minX + 1;
     result.height = maxY - minY + 1;
-    for (var y = minY; y <= maxY; y++) {
-      result[y - minY] = bitmap[y].slice(minX, maxX);
+    for (var y1 = minY; y1 <= maxY; y1++) {
+      result[y1 - minY] = bitmap[y1].slice(minX, maxX);
     }
     return result;
   }
