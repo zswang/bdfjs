@@ -10,7 +10,7 @@
    *   Victor Porof (<victor.porof@gmail.com>)
    *   erkkah (https://github.com/erkkah)
    *   zswang (http://weibo.com/zswang)
-   * @version 0.0.3
+   * @version 0.0.4
    * @date 2016-07-16
    */
   var exports = exports || {};
