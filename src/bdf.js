@@ -229,8 +229,8 @@
     var font = BDF.parse(buffer);
 
     var bitmap = BDF.draw(font, 'HI');
-    console.log(JSON.stringify(BDF.trim(bitmap)));
-    // > {"0":[1,0,1,0,1,1],"1":[1,0,1,0,0,1],"2":[1,1,1,0,0,1],"3":[1,0,1,0,0,1],"4":[1,0,1,0,1,1],"width":7,"height":5}
+    console.log(JSON.stringify(bitmap));
+    // > {"0":[1,0,1,0,1,1,1,0],"1":[1,0,1,0,0,1,0,0],"2":[1,1,1,0,0,1,0,0],"3":[1,0,1,0,0,1,0,0],"4":[1,0,1,0,1,1,1,0],"5":[0,0,0,0,0,0,0,0],"width":8,"height":6}
     ```
    */
   function bdf_draw(font, text, options) {
@@ -291,6 +291,7 @@
         xpos = -glyphData.boundingBox.x;
         columnsToAdd += xpos;
       }
+      columnsToAdd += kerningBias;
 
       // Extend bitmap to the right with zeros
       for (var row1 = 0; row1 < height; row1++) {
@@ -333,7 +334,7 @@
 
     var bitmap = BDF.draw(font, 'HI');
     console.log(JSON.stringify(BDF.trim(bitmap)));
-    // > {"0":[1,0,1,0,1,1],"1":[1,0,1,0,0,1],"2":[1,1,1,0,0,1],"3":[1,0,1,0,0,1],"4":[1,0,1,0,1,1],"width":7,"height":5}
+    // > {"0":[1,0,1,0,1,1,1],"1":[1,0,1,0,0,1,0],"2":[1,1,1,0,0,1,0],"3":[1,0,1,0,0,1,0],"4":[1,0,1,0,1,1,1],"width":7,"height":5}
     ```
    */
   function bdf_trim(bitmap) {
@@ -359,7 +360,7 @@
     result.width = maxX - minX + 1;
     result.height = maxY - minY + 1;
     for (var y1 = minY; y1 <= maxY; y1++) {
-      result[y1 - minY] = bitmap[y1].slice(minX, maxX);
+      result[y1 - minY] = bitmap[y1].slice(minX, maxX + 1);
     }
     return result;
   }
