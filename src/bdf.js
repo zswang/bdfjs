@@ -101,7 +101,7 @@
           meta.version = data[1];
           break;
         case "FONT":
-          meta.name = data[1];
+          meta.name = line.substr(data[0].length).trim();
           break;
         case "SIZE":
           meta.size = {
